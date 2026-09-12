@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>Globe Cameras — PixelProTech Solutions</title>
+    <!--
+      Companion to 404.html: if this page was reached via the 404.html
+      redirect (i.e. the URL has a "?/..." query segment encoding the
+      original deep-link path), restore that real path with
+      history.replaceState before React Router initializes, so it sees
+      /globe-cameras/about instead of /globe-cameras/?/about.
+      Runs only when the redirect query marker is present; does nothing
+      on normal navigation.
+    -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      })();
+    </script>
+    <meta
+      name="description"
+      content="Explore legitimate public cameras from around the world on one geographic interface. Real feeds, honest status, no fake data."
+    />
+
+    <!-- Favicons — modern SVG first, ICO fallback for older browsers -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
+    <!-- Theme colour for browser chrome / status bars -->
+    <meta name="theme-color" content="#0A0A0F" />
+
+    <!-- iOS home-screen install support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Globe Cameras" />
+
+    <!-- Android / Chrome install support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Social preview -->
+    <meta property="og:title" content="Globe Cameras — PixelProTech Solutions" />
+    <meta
+      property="og:description"
+      content="A global technical observation system for legitimate public cameras."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./index-Bs7sJzFq.js"></script>
+    <link rel="stylesheet" crossorigin href="./index-1qtgxI1L.css">
+  <link rel="manifest" href="./manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

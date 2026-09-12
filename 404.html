@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Globe Cameras — PixelProTech Solutions</title>
+    <!--
+      GitHub Pages has no server-side routing: a direct request or hard
+      refresh at /globe-cameras/about has no matching physical file and
+      is served this 404.html. This script re-encodes the requested path
+      into a query string and redirects back to the app's index.html,
+      where the matching script in index.html restores the real path
+      before the client-side router (React Router) reads it.
+
+      pathSegmentsToKeep = 1 because this project is served from one
+      path segment under the domain: /globe-cameras/
+    -->
+    <script>
+      (function () {
+        var pathSegmentsToKeep = 1;
+        var l = window.location;
+        var newUrl =
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
+          '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash;
+        window.location.replace(newUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
